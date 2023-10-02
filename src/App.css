@@ -1,14 +1,16 @@
 .App {
   text-align: center;
 }
-.dot-container {
+
+.draw-dot-container {
   height: 500px;
   position: relative;
 }
 
 .dot {
   position: absolute;
-  background-color: red;
+  background-color: #000000;
   height: 5px;
   width: 5px;
+  border-radius: 50%;
 }

@@ -1,32 +1,28 @@
-import { log } from 'console';
-import React, { ReactElement, useState } from 'react'
-
+import React, { useState } from 'react'
+/**
+    * Draw a dot on mouse click
+    */
 const DrawDot = () => {
-    /**
-     * Draw a dot on mouse click
-     */
-    const [dots, setDots] = useState<any>([]);
 
-    const getCoordinates = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-        const x = e.clientX;
-        const y =  e.clientY;
-        const newDot = {x, y};
-        setDots([...dots, newDot]);
-    }
+  const [dots, setDots] = useState<any>([]);
+
+  const getCoordinates = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const x = e.clientX;
+    const y = e.clientY;
+    const newDot = { x, y };
+    setDots([...dots, newDot]);
+  }
   return (
-    <div className='dot-container' onClick={(e) => getCoordinates(e)}>
-        DrawDot
-        {dots.map((dot: any, index: number) => (
-
-            <div
-            key={index}
-             className='dot'
-             style={{left: dot.x, top: dot.y}}
-             >
-
-             </div>
-        )
-        )}
+    <div className='draw-dot-container' onClick={(e) => getCoordinates(e)}>
+      DrawDot
+      {dots.map((dot: any, index: number) => (
+        <div
+          key={index}
+          className='dot'
+          style={{ left: dot.x, top: dot.y }}
+        ></div>
+      )
+      )}
     </div>
   )
 }
