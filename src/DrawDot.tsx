@@ -27,4 +27,4 @@ const DrawDot = () => {
   )
 }
 
-export default DrawDot;
+export default React.memo(DrawDot);
