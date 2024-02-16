@@ -1,14 +1,10 @@
-import React from 'react';
-import logo from './logo.svg';
+import Router from './Router/Router';
 import './App.css';
-import DrawCircle from './DrawCircle';
-import DrawDot from './DrawDot';
 
 function App() {
   return (
     <div className="App">
-      {/* <DrawCircle /> */}
-      <DrawDot />
+      <Router />
     </div>
   );
 }

@@ -17,7 +17,6 @@ const DrawDot = () => {
   };
   return (
     <div className="draw-dot-container" onClick={(e) => getCoordinates(e)}>
-      DrawDot
       {dots.map((dot: any, index: number) => (
         <div
           key={index}
