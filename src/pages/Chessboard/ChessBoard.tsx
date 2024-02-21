@@ -32,7 +32,7 @@ const ChessBoard = () => {
         for (let i = 0; i < boardSizeArr.length; i++) {
             for (let j = 0; j < rowSize; j++) {
                 const isEvenCell = (boardSizeArr[i][j]) % 2 === 0;
-                const cellClass = `w-[120px] h-[120px] border border-gray-500 flex justify-center items-center ${
+                const cellClass = `w-[120px] h-[120px] border flex justify-center items-center ${
                   isEvenCell ? 'even bg-black text-white' : 'odd'
                 }`;
                 row.push(
@@ -45,7 +45,7 @@ const ChessBoard = () => {
             row = [];
         }
         return (
-          <div className="flex flex-wrap w-100 items-center justify-center pt-4">
+          <div className="flex flex-wrap w-100 items-center justify-center py-4">
             {rows}
           </div>
         );

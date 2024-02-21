@@ -7,7 +7,6 @@ const Header = () => {
         <div className="flex flex-wrap items-center">
         <div className='flex gap-2'>
         <Link className='hover:bg-sky-400' to={'/drawshapes'}>Draw shapes</Link>
-        <Link className='hover:bg-sky-400' to={'/chessboard'}>ChessBoard</Link>
         </div>
         </div>
   </header>
