@@ -6,7 +6,7 @@ const Header = () => {
     <header className="bg-white border-gray-200 px-4 lg:px-6 py-5 shadow dark:bg-gray-800">
         <div className="flex flex-wrap items-center">
         <div className='flex gap-2'>
-        <Link className='hover:bg-sky-400' to={'/drawshapes'}>Draw shapes</Link>
+        <Link className='hover:bg-sky-400' to={'/drawshapes'}>Coding Challenges</Link>
         </div>
         </div>
   </header>

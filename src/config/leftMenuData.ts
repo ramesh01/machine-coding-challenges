@@ -20,6 +20,10 @@ const leftMenu: Array<LeftMenuItem> = [
 		name: "Color Picker",
 		path: "/color-picker",
 	},
+	{
+		name: "Star Rating",
+		path: "/star-rating",
+	},
 ];
 
 export { leftMenu };
