@@ -1,18 +1,52 @@
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
+import Star from "../../components/Star/Star";
 
 const StarRating = () => {
-	const [noOfStars, setNoOfStars] = useState(10);
+	const [noOfStars, setNoOfStars] = useState<string>("10");
 	const [starsArr, setStarsArr] = useState<number[]>([]);
 
 	useEffect(() => {
-		setStarsArr(Array.from(Array(noOfStars).keys()).map((index) => index + 1));
+		setStarsArr(
+			Array.from(Array(Number(noOfStars)).keys()).map((index) => index + 1)
+		);
 	}, [noOfStars]);
+
+	const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
+		const value = event.target.value;
+		if (Number(value) <= 10) {
+			setNoOfStars(value);
+		} else {
+			setNoOfStars("");
+		}
+	};
 
 	return (
 		<div className="star-rating-container">
-			{starsArr.map((e: number) => (
-				<span><svg className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1cw4hi4" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="StarBorderIcon"><path d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"></path></svg></span>
-			))}
+			<div className="flex items-center mb-6">
+				<div className="pr-2">
+					<label
+						className="block text-gray-700 text-sm font-bold mb-2"
+						htmlFor="stars"
+					>
+						Stars
+					</label>
+				</div>
+				<div>
+					<input
+						id="stars"
+						className="shadow appearance-none border rounded w-30 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+						type="text"
+						placeholder="Username"
+						value={noOfStars}
+						onChange={handleOnChange}
+					/>
+				</div>
+			</div>
+			<div className="flex flex-wrap">
+				{starsArr.map((e: number) => (
+					<Star key={e} rating={e} />
+				))}
+			</div>
 		</div>
 	);
 };
