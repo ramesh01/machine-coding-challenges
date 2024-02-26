@@ -1,22 +1,46 @@
-import { FC } from "react";
+import { FC, useState } from "react";
+import "./star.css";
 
 type InputProps = {
 	rating: number;
+	onMouseEnter: (rating: number) => void;
+	onMouseLeave: (rating: number) => void;
+	onClickEvent: (rating: number) => void;
+	selectedRating: number;
 };
 
-const Star: FC<InputProps> = ({rating}) => {
-    
+const Star: FC<InputProps> = ({
+	rating,
+	onMouseEnter,
+	onMouseLeave,
+	selectedRating,
+	onClickEvent,
+}) => {
+	const [index] = useState(rating);
+
+	const HandleMouseEnter = () => {
+		onMouseEnter(index);
+	};
+
+	const HandleMouseLeave = () => {
+		onMouseLeave(index);
+	};
+
+	const handleClick = () => {
+		onClickEvent(index);
+	};
+
 	return (
-		<span className="w-10 cursor-pointer" data-rating={rating}>
-			<svg
-				className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1cw4hi4"
-				focusable="false"
-				aria-hidden="true"
-				viewBox="0 0 24 24"
-				data-testid="StarBorderIcon"
-			>
-				<path d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"></path>
-			</svg>
+		<span
+			className={`cursor-pointer star ${
+				index <= selectedRating ? "on" : "off"
+			}`}
+			data-rating={index}
+			onMouseEnter={HandleMouseEnter}
+			onMouseLeave={HandleMouseLeave}
+			onClick={handleClick}
+		>
+			&#9733;
 		</span>
 	);
 };

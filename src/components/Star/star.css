@@ -1,0 +1,12 @@
+.star {
+	color: #ccc;
+	font-size: 30px;
+	padding: 10px;
+}
+
+.on {
+	color: #f5b025;
+}
+.off {
+	color: #ccc;
+}

@@ -4,11 +4,15 @@ import Star from "../../components/Star/Star";
 const StarRating = () => {
 	const [noOfStars, setNoOfStars] = useState<string>("10");
 	const [starsArr, setStarsArr] = useState<number[]>([]);
+	const [rating, setRating] = useState(0);
+	const [hover, setHover] = useState<number>(0);
 
 	useEffect(() => {
 		setStarsArr(
 			Array.from(Array(Number(noOfStars)).keys()).map((index) => index + 1)
 		);
+		setRating(0);
+		setHover(0);
 	}, [noOfStars]);
 
 	const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -18,6 +22,18 @@ const StarRating = () => {
 		} else {
 			setNoOfStars("");
 		}
+	};
+
+	const handleMouseEnterEvent = (rating: number) => {
+		setHover(rating);
+	};
+
+	const handleMouseLeaveEvent = (rating: number) => {
+		setHover(0);
+	};
+
+	const handleClickEvent = (rating: number) => {
+		setRating(rating);
 	};
 
 	return (
@@ -44,7 +60,14 @@ const StarRating = () => {
 			</div>
 			<div className="flex flex-wrap">
 				{starsArr.map((e: number) => (
-					<Star key={e} rating={e} />
+					<Star
+						key={`${noOfStars}-${e}`}
+						rating={e}
+						onMouseEnter={handleMouseEnterEvent}
+						onMouseLeave={handleMouseLeaveEvent}
+						onClickEvent={handleClickEvent}
+						selectedRating={hover || rating}
+					/>
 				))}
 			</div>
 		</div>
