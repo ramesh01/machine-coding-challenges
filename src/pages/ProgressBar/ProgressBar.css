@@ -1,0 +1,7 @@
+.progressbar-container {
+    position: relative;
+}
+
+.progress-bar {
+    position: absolute;
+}

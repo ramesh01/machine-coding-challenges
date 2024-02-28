@@ -16,13 +16,17 @@ const leftMenu: Array<LeftMenuItem> = [
 		name: "Count Down Timer",
 		path: "/countdown-timer",
 	},
+	{
+		name: "Star Rating",
+		path: "/star-rating",
+	},
     {
 		name: "Color Picker",
 		path: "/color-picker",
 	},
 	{
-		name: "Star Rating",
-		path: "/star-rating",
+		name: "Progress Bar",
+		path: "/progress-bar",
 	},
 ];
 

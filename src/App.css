@@ -15,25 +15,6 @@
   border-radius: 50%;
 }
 
-.countdown-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 6rem;
-  align-items: center;
-}
-
-.countdown-item {
-  flex: 0 1 120px;
-}
-
-.countdown-item input {
-  width: 80px;
-  height: 80px;
-  font-size: 2.5rem;
-  color: #000;
-  outline: none;
-}
-
 .colon {
   font-size: 2rem;
   color: #ccc;
