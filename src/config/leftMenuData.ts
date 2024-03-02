@@ -28,6 +28,10 @@ const leftMenu: Array<LeftMenuItem> = [
 		name: "Progress Bar",
 		path: "/progress-bar",
 	},
+	{
+		name: "OTP Login",
+		path: "/otp-login",
+	},
 ];
 
 export { leftMenu };

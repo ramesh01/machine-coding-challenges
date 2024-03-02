@@ -1,26 +1,43 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import DefaultLayout from "../components/DefaultLayout/DefaultLayout";
-import ChessBoard from "../pages/Chessboard/ChessBoard";
-import DrawShapes from "../pages/DrawShapes/DrawShapes";
-import PageNotFound from "../pages/PageNotFound/PageNotFound";
-import CountDownTimer from "../pages/CountDownTimer/CountDownTimer";
-import StarRating from "../pages/StarRating/StarRating";
-import ProgressBar from "../pages/ProgressBar/ProgressBar";
-import GridLights from "../pages/GridLights/GridLights";
+import { Suspense, lazy } from "react";
+import Loader from "../components/Loader/Loader";
 
 const Router = () => {
+	const DrawShapes = lazy(() => import("../pages/DrawShapes/DrawShapes"));
+	const ChessBoard = lazy(() => import("../pages/Chessboard/ChessBoard"));
+	const CountDownTimer = lazy(
+		() => import("../pages/CountDownTimer/CountDownTimer")
+	);
+	const StarRating = lazy(() => import("../pages/StarRating/StarRating"));
+	const ProgressBar = lazy(() => import("../pages/ProgressBar/ProgressBar"));
+	const GridLights = lazy(() => import("../pages/GridLights/GridLights"));
+	const OTPLogin = lazy(() => import("../pages/OTPLogin/OTPLogin"));
+	const PageNotFound = lazy(() => import("../pages/PageNotFound/PageNotFound"));
+
+	const loaderWrapper = (component: JSX.Element) => {
+		return <Suspense fallback={<Loader />}>{component}</Suspense>;
+	};
+
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path="/" element={<DefaultLayout />}>
-					<Route path="/drawshapes" element={<DrawShapes />} />
-					<Route path="/chessboard" element={<ChessBoard />} />
-					<Route path="/countdown-timer" element={<CountDownTimer />} />
-					<Route path="/star-rating" element={<StarRating />} />
-					<Route path="/progress-bar" element={<ProgressBar />} />
-					<Route path="/grid-lights" element={<GridLights />} />
+				<Route path="/" element={loaderWrapper(<DefaultLayout />)}>
+					<Route path="/drawshapes" element={loaderWrapper(<DrawShapes />)} />
+					<Route path="/chessboard" element={loaderWrapper(<ChessBoard />)} />
+					<Route
+						path="/countdown-timer"
+						element={loaderWrapper(<CountDownTimer />)}
+					/>
+					<Route path="/star-rating" element={loaderWrapper(<StarRating />)} />
+					<Route
+						path="/progress-bar"
+						element={loaderWrapper(<ProgressBar />)}
+					/>
+					<Route path="/grid-lights" element={loaderWrapper(<GridLights />)} />
+					<Route path="/otp-login" element={loaderWrapper(<OTPLogin />)} />
 				</Route>
-				<Route path="*" element={<PageNotFound />}></Route>
+				<Route path="*" element={loaderWrapper(<PageNotFound />)}></Route>
 			</Routes>
 		</BrowserRouter>
 	);
