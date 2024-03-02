@@ -21,8 +21,8 @@ const leftMenu: Array<LeftMenuItem> = [
 		path: "/star-rating",
 	},
     {
-		name: "Color Picker",
-		path: "/color-picker",
+		name: "Grid Lights",
+		path: "/grid-lights",
 	},
 	{
 		name: "Progress Bar",
