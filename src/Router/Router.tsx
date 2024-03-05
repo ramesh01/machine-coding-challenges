@@ -14,6 +14,7 @@ const Router = () => {
 	const GridLights = lazy(() => import("../pages/GridLights/GridLights"));
 	const OTPLogin = lazy(() => import("../pages/OTPLogin/OTPLogin"));
 	const PageNotFound = lazy(() => import("../pages/PageNotFound/PageNotFound"));
+	const TrafficLight = lazy(() => import("../pages/TrafficLight/TrafficLight"));
 
 	const loaderWrapper = (component: JSX.Element) => {
 		return <Suspense fallback={<Loader />}>{component}</Suspense>;
@@ -36,6 +37,7 @@ const Router = () => {
 					/>
 					<Route path="/grid-lights" element={loaderWrapper(<GridLights />)} />
 					<Route path="/otp-login" element={loaderWrapper(<OTPLogin />)} />
+					<Route path="/traffic-light" element={loaderWrapper(<TrafficLight />)} />
 				</Route>
 				<Route path="*" element={loaderWrapper(<PageNotFound />)}></Route>
 			</Routes>

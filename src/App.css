@@ -21,6 +21,34 @@
   width: 1rem;
 }
 
+.signal-light-container {
+  padding: 10px;
+  background-color: #000000;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.signal-light {
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  border: 1px solid #000000;
+  margin: 5px;
+  background-color: #ccc;
+}
+
+.signal-light.red {
+  background-color: red;
+}
+
+.signal-light.yellow {
+  background-color: yellow;
+}
+
+.signal-light.green {
+  background-color: green;
+}
+
 ::placeholder {
   text-align: center; 
 }

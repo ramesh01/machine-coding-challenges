@@ -32,6 +32,10 @@ const leftMenu: Array<LeftMenuItem> = [
 		name: "OTP Login",
 		path: "/otp-login",
 	},
+	{
+		name: "Traffic Light",
+		path: "/traffic-light",
+	},
 ];
 
 export { leftMenu };
