@@ -36,6 +36,10 @@ const leftMenu: Array<LeftMenuItem> = [
 		name: "Traffic Light",
 		path: "/traffic-light",
 	},
+	{
+		name: "Grid Align Diagonal",
+		path: "/grid-align-diagonal",
+	},
 ];
 
 export { leftMenu };

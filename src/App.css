@@ -21,6 +21,8 @@
   width: 1rem;
 }
 
+/** Traffic-light style  */
+
 .signal-light-container {
   padding: 10px;
   background-color: #000000;
@@ -48,6 +50,32 @@
 .signal-light.green {
   background-color: green;
 }
+
+/** Traffic-light style  ends */
+
+/** CSS grid align diagonal */
+.grid-container {
+  border: 1px solid #000000;
+  height: 180px;
+  width: 180px;
+}
+
+.grid-container .block {
+  border: 1px solid;
+  height: 60px;
+  width: 60px;
+  box-sizing: border-box;
+}
+
+.grid-container .block:nth-child(2){
+  transform: translateX(100%);
+}
+
+.grid-container .block:nth-child(3){
+  transform: translateX(200%);
+}
+
+
 
 ::placeholder {
   text-align: center; 

@@ -27,13 +27,20 @@ const TrafficLight = () => {
 		}, 500);
 	};
 	return (
-		<div className="signal-light-container">
-			{signalLights.map((item: string) => (
-				<div
-					className={`signal-light ${currentSignal === item ? `${item}` : ""}`}
-				></div>
-			))}
-		</div>
+		<>
+			<h1 className="block text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200 py-3">
+				Traffic light
+			</h1>
+			<div className="signal-light-container">
+				{signalLights.map((item: string) => (
+					<div
+						className={`signal-light ${
+							currentSignal === item ? `${item}` : ""
+						}`}
+					></div>
+				))}
+			</div>
+		</>
 	);
 };
 
