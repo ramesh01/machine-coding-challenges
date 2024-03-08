@@ -40,6 +40,10 @@ const leftMenu: Array<LeftMenuItem> = [
 		name: "Grid Align Diagonal",
 		path: "/grid-align-diagonal",
 	},
+	{
+		name: "Timer",
+		path: "/timer",
+	},
 ];
 
 export { leftMenu };
