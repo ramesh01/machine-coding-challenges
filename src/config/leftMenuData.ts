@@ -44,6 +44,10 @@ const leftMenu: Array<LeftMenuItem> = [
 		name: "Timer",
 		path: "/timer",
 	},
+	{
+		name: "Survey Table",
+		path: "/survey-table",
+	},
 ];
 
 export { leftMenu };

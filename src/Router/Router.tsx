@@ -18,9 +18,8 @@ const Router = () => {
 	const GridAlignDiagonal = lazy(
 		() => import("../pages/CSSGridAlignDiagonal/GridAlignDiagonal")
 	);
-	const Timer = lazy(
-		() => import("../pages/Timer/Timer")
-	);
+	const Timer = lazy(() => import("../pages/Timer/Timer"));
+	const SurveyTable = lazy(() => import("../pages/SurveyTable/SurveyTable"));
 
 	const loaderWrapper = (component: JSX.Element) => {
 		return <Suspense fallback={<Loader />}>{component}</Suspense>;
@@ -51,9 +50,10 @@ const Router = () => {
 						path="/grid-align-diagonal"
 						element={loaderWrapper(<GridAlignDiagonal />)}
 					/>
+					<Route path="/timer" element={loaderWrapper(<Timer />)} />
 					<Route
-						path="/timer"
-						element={loaderWrapper(<Timer />)}
+						path="/survey-table"
+						element={loaderWrapper(<SurveyTable />)}
 					/>
 				</Route>
 				<Route path="*" element={loaderWrapper(<PageNotFound />)}></Route>
